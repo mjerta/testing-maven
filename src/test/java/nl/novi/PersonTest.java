@@ -43,6 +43,20 @@ class PersonTest {
   }
 
   @Test
+  void canCreateGetName() {
+    // arrange
+    var name = "Maarten";
+    person.setName(name);
+
+    // act
+    var sut = person.getName();
+
+    // assert
+    assertEquals(name, sut);
+
+  }
+
+  @Test
   void canCreateSetName() {
     // arrange
     var name = "Maarten";
@@ -54,15 +68,17 @@ class PersonTest {
     assertEquals(name, person.getName());
   }
   @Test
-  void canCreateGetLastName() {
+  void canSetlastNameWithParameter() {
     // arrange
-    var lastName = "Postma";
-    person.setLastName(lastName);
+    var lastName = "postma";
 
     // act
+    person.setLastName(lastName);
     var sut = person.getLastName();
 
     // assert
-    assertEquals(lastName, sut);
+    assertEquals("Postma", sut);
   }
+
+
 }
