@@ -176,18 +176,28 @@ class PersonTest {
   @Test
   void canAddChildExactly() {
     // arrange
-//    Person puk = new Person("Puk");
+    Person puk = new Person("Puk");
+    person.addChild(puk);
     var children = person.getChildren();
     // act
-    var sut = false;
-    for( Person child : children ) {
-      if(person.getName().equalsIgnoreCase(child.getName())) {
-        sut = true;
-      }
-    }
-    assertEquals(false, sut);
-
+    person.addChild(puk);
+    // assert
+     assertEquals(person.getChildren().size(),1);
   }
+
+  @Test
+  void canAddChildExactlyReturnsTrue() {
+    // arrange
+    Person puk = new Person("Puk");
+    Person piet = new Person("Piet");
+    person.addChild(puk);
+    var children = person.getChildren();
+    // act
+    person.addChild(piet);
+    // assert
+    assertNotEquals(person.getChildren().size(),1);
+  }
+
 
 
 
